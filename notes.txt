@@ -1,0 +1,5 @@
+
+docker build -t telegrambot:v1.0 .
+
+
+
