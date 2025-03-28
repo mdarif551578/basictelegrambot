@@ -23,6 +23,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Switch to the non-privileged user to run the application.
 USER appuser
 
+EXPOSE 8000
+
 # Run the application.
 CMD ["python", "main.py"]
 
