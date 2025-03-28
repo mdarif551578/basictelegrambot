@@ -1,5 +1,5 @@
 
 docker build -t telegrambot:v1.0 .
 
-
+docker run -p 8000:8000 telegrambot:v1.0
 

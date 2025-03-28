@@ -94,7 +94,4 @@ thread_event.set()
 thread = threading.Thread(target=runbot)
 thread.start()
 
-thread_event.set()
-thread = threading.Thread(target=run)
-thread.start()
-
+run()

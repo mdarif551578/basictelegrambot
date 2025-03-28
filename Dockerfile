@@ -15,10 +15,13 @@ ARG UID=10001
 RUN adduser --disabled-password --gecos "" --home "/nonexistent" --shell "/sbin/nologin" --no-create-home --uid "${UID}" appuser
 
 # Copy the source code into the container.
-COPY . .
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the source code into the container.
+COPY . .
 
 # Switch to the non-privileged user to run the application.
 USER appuser
