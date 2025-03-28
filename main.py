@@ -64,7 +64,37 @@ def gemini(message):
     text=get_response(prompt=prompt, model=model)
   )
 
-bot.infinity_polling(
-  timeout=60,
-  long_polling_timeout=60
-)
+# bot.infinity_polling(
+#   timeout=60,
+#   long_polling_timeout=60
+# )
+
+
+from flask import Flask
+
+app = Flask(__name__)
+@app.route("/")
+def index():
+    return "Hello, World!"
+
+def run():
+  app.run(port=8000)
+
+def runbot():
+  bot.infinity_polling(
+    timeout=60,
+    long_polling_timeout=60
+  )
+
+import threading
+thread_event = threading.Event()
+
+
+thread_event.set()
+thread = threading.Thread(target=runbot)
+thread.start()
+
+thread_event.set()
+thread = threading.Thread(target=run)
+thread.start()
+
