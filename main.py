@@ -78,7 +78,7 @@ def index():
     return "Hello, World!"
 
 def run():
-  app.run(port=8000)
+  app.run(port=8000, host="0.0.0.0", debug=True)
 
 def runbot():
   bot.infinity_polling(
